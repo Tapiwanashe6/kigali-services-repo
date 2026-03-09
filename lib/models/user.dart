@@ -34,7 +34,7 @@ class User {
       displayName: data['displayName'],
       emailVerified: data['emailVerified'] ?? false,
       createdAt: data['createdAt'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(data['createdAt'].millisecondsSinceEpoch)
+          ? DateTime.fromMillisecondsSinceEpoch(data['createdAt'].millisecondsSinceEpoch,)
           : null,
     );
   }

@@ -515,7 +515,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                   ),
                   
                   // Map Preview or Location Status
-                  if (_hasValidCoordinates())
+                  if (_hasValidCoordinates(),)
                     Positioned(
                       bottom: 0,
                       left: 0,
@@ -577,7 +577,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                           ),
                         ),
                       ),
-                    )
+                    ,)
                   else
                     Positioned(
                       bottom: 0,
@@ -927,7 +927,7 @@ class _DetailRow extends StatelessWidget {
               ],
             ),
           ),
-          if (action != null && hasValue)
+          if (action != null && hasValue,)
             IconButton(
               onPressed: action,
               icon: const Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Color(0xFF6B7A8A)),

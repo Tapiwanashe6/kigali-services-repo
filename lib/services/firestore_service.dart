@@ -44,8 +44,8 @@ class FirestoreService {
   // All listings stream
   Stream<List<Listing>> getAllListings() {
     return _listingsCollection
-        .orderBy('timestamp', descending: true)
-        .snapshots()
+        .orderBy('timestamp', descending: true,)
+        .snapshots(,)
         .map((snapshot) {
       return snapshot.docs.map((doc) {
         return Listing.fromMap(doc.id, doc.data() as Map<String, dynamic>);
@@ -56,9 +56,9 @@ class FirestoreService {
   // Listings by user stream
   Stream<List<Listing>> getListingsByUser(String userId) {
     return _listingsCollection
-        .where('createdBy', isEqualTo: userId)
-        .orderBy('timestamp', descending: true)
-        .snapshots()
+        .where('createdBy', isEqualTo: userId,)
+        .orderBy('timestamp', descending: true,)
+        .snapshots(,)
         .map((snapshot) {
       return snapshot.docs.map((doc) {
         return Listing.fromMap(doc.id, doc.data() as Map<String, dynamic>);
@@ -154,8 +154,8 @@ class FirestoreService {
   Future<List<Listing>> searchListingsByName(String query) async {
     try {
       final QuerySnapshot snapshot = await _listingsCollection
-          .where('name', isGreaterThanOrEqualTo: query)
-          .where('name', isLessThanOrEqualTo: '$query\uf8ff')
+          .where('name', isGreaterThanOrEqualTo: query,)
+          .where('name', isLessThanOrEqualTo: '$query\uf8ff',)
           .get();
 
       return snapshot.docs.map((doc) {
@@ -169,9 +169,9 @@ class FirestoreService {
   // Get listings by category
   Stream<List<Listing>> getListingsByCategory(String category) {
     return _listingsCollection
-        .where('category', isEqualTo: category)
-        .orderBy('timestamp', descending: true)
-        .snapshots()
+        .where('category', isEqualTo: category,)
+        .orderBy('timestamp', descending: true,)
+        .snapshots(,)
         .map((snapshot) {
       return snapshot.docs.map((doc) {
         return Listing.fromMap(doc.id, doc.data() as Map<String, dynamic>);
@@ -179,11 +179,11 @@ class FirestoreService {
     });
   }
 
-  // Get all listings (one-time fetch)
+  // Get all listings (one-time fetch,)
   Future<List<Listing>> getAllListingsOnce() async {
     try {
       final QuerySnapshot snapshot = await _listingsCollection
-          .orderBy('timestamp', descending: true)
+          .orderBy('timestamp', descending: true,)
           .get();
 
       return snapshot.docs.map((doc) {

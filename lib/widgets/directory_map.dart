@@ -33,7 +33,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
 
   static const LatLng _defaultCenter = LatLng(-1.9403, 30.0606);
 
-  // Check valid coordinates (not 0,0)
+  // Check valid coordinates (not 0,0,)
   bool _hasValidCoordinates(Listing listing) {
     return (listing.latitude != 0.0 || listing.longitude != 0.0);
   }
@@ -165,7 +165,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
             ),
 
             // Selected listing popup/card
-            if (_selectedListing != null && widget.showPopup)
+            if (_selectedListing != null && widget.showPopup,)
               Positioned(
                 bottom: 16,
                 left: 16,
@@ -590,13 +590,13 @@ class _DirectoryMapState extends State<DirectoryMap> {
     debugPrint('Navigate to listing: ${listing.id}');
   }
 
-  /// Calculate route between two points (placeholder for future implementation)
+  /// Calculate route between two points (placeholder for future implementation,)
   Future<List<LatLng>> calculateRoute(LatLng start, LatLng end) async {
     debugPrint('Calculate route from $start to $end');
     return [];
   }
 
-  /// Get turn-by-turn directions (placeholder for future implementation)
+  /// Get turn-by-turn directions (placeholder for future implementation,)
   Future<List<String>> getTurnByTurnDirections(
     LatLng start, 
     LatLng end,

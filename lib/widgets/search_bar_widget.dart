@@ -54,7 +54,7 @@ class SearchBarWidget extends StatelessWidget {
                     controller.clear();
                     onClear?.call();
                   },
-                )
+                ,)
               : null,
           border: InputBorder.none,
           enabledBorder: InputBorder.none,

@@ -76,7 +76,7 @@ class _EmailVerificationPendingScreenState
             backgroundColor: Colors.green,
           ),
         );
-        // Start cooldown timer (60 seconds)
+        // Start cooldown timer (60 seconds,)
         setState(() {
           _cooldownSeconds = 60;
         });
@@ -222,7 +222,7 @@ class _EmailVerificationPendingScreenState
                   builder: (context, authProvider, child) {
                     return ElevatedButton.icon(
                       onPressed:
-                          (_cooldownSeconds > 0 || _isResending)
+                          (_cooldownSeconds > 0 || _isResending,)
                               ? null
                               : _resendVerificationEmail,
                       icon: _isResending
@@ -233,7 +233,7 @@ class _EmailVerificationPendingScreenState
                                 strokeWidth: 2,
                                 color: Colors.white,
                               ),
-                            )
+                            ,)
                           : const Icon(Icons.refresh),
                       label: Text(
                         _cooldownSeconds > 0

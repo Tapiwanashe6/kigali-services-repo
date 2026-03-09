@@ -70,7 +70,7 @@ class CategoryFilterChips extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         children: [
           // "All" chip
-          if (showAllOption)
+          if (showAllOption,)
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: FilterChip(
@@ -85,14 +85,14 @@ class CategoryFilterChips extends StatelessWidget {
                 checkmarkColor: const Color(0xFF1A237E),
                 labelStyle: TextStyle(
                   color: selectedCategory == null
-                      ? const Color(0xFF1A237E)
+                      ? const Color(0xFF1A237E,)
                       : Colors.grey[700],
                   fontWeight: selectedCategory == null
                       ? FontWeight.bold
                       : FontWeight.normal,
                 ),
                 avatar: selectedCategory == null
-                    ? const Icon(Icons.check, size: 18, color: Color(0xFF1A237E))
+                    ? const Icon(Icons.check, size: 18, color: Color(0xFF1A237E),)
                     : null,
               ),
             ),

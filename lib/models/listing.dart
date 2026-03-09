@@ -9,7 +9,7 @@ class Listing {
   final double longitude;
   final String createdBy;
   final DateTime timestamp;
-  final double averageRating; // Average rating (0-5)
+  final double averageRating; // Average rating (0-5,)
   final int numRatings; // Number of ratings
 
   Listing({
@@ -40,7 +40,7 @@ class Listing {
       longitude: (data['longitude'] ?? 0.0).toDouble(),
       createdBy: data['createdBy'] ?? '',
       timestamp: data['timestamp'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(data['timestamp'].millisecondsSinceEpoch)
+          ? DateTime.fromMillisecondsSinceEpoch(data['timestamp'].millisecondsSinceEpoch,)
           : DateTime.now(),
       averageRating: (data['AverageRating'] ?? 0.0).toDouble(),
       numRatings: data['NumRatings'] ?? 0,

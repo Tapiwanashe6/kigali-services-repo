@@ -189,8 +189,8 @@ class ListingCard extends StatelessWidget {
                             ),
                             const SizedBox(width: 10),
                             
-                            // Rating display (only show for listings with ratings)
-                            if (listing.numRatings > 0)
+                            // Rating display (only show for listings with ratings,)
+                            if (listing.numRatings > 0,)
                               Container(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 8,
@@ -283,7 +283,7 @@ class ListingCard extends StatelessWidget {
                   
                   // Action buttons or chevron
                   const SizedBox(width: 8),
-                  if (showActions)
+                  if (showActions,)
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -295,14 +295,14 @@ class ListingCard extends StatelessWidget {
                           ),
                           const SizedBox(width: 8),
                         ],
-                        if (onDelete != null)
+                        if (onDelete != null,)
                           _ActionButton(
                             icon: Icons.delete_outline,
                             color: const Color(0xFFE53935),
                             onTap: onDelete!,
                           ),
                       ],
-                    )
+                    ,)
                   else
                     Container(
                       width: 32,

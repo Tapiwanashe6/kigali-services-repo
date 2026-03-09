@@ -51,7 +51,7 @@ class ListingsProvider extends ChangeNotifier {
     if (_searchQuery.isNotEmpty) {
       result = result.where((l) =>
         l.name.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-        l.address.toLowerCase().contains(_searchQuery.toLowerCase())
+        l.address.toLowerCase().contains(_searchQuery.toLowerCase(),)
       ).toList();
     }
 
@@ -83,7 +83,7 @@ class ListingsProvider extends ChangeNotifier {
 
   // Initialize user listings stream
   void initializeMyListingsStream(String userId, {bool forceRefresh = false}) {
-    // Only initialize if not already done for this user (unless force refresh)
+    // Only initialize if not already done for this user (unless force refresh,)
     if (_myListingsStreamInitialized && _currentUserIdForMyListings == userId && !forceRefresh) {
       return;
     }
@@ -267,13 +267,13 @@ class ListingsProvider extends ChangeNotifier {
 
   // Get listing by ID - checks local cache first
   Future<Listing?> getListingById(String id) async {
-    // First, check local cache (_listings)
+    // First, check local cache (_listings,)
     final cachedListing = _listings.where((l) => l.id == id).firstOrNull;
     if (cachedListing != null) {
       return cachedListing;
     }
     
-    // Second, check local cache (_myListings)
+    // Second, check local cache (_myListings,)
     final cachedMyListing = _myListings.where((l) => l.id == id).firstOrNull;
     if (cachedMyListing != null) {
       return cachedMyListing;

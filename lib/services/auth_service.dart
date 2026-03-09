@@ -88,7 +88,7 @@ class AuthService {
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw Exception(_handleAuthException(e));
     } catch (e) {
-      // Re-throw any other exceptions (like our custom "not in database" exception)
+      // Re-throw any other exceptions (like our custom "not in database" exception,)
       rethrow;
     }
   }

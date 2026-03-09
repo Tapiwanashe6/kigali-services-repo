@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_formKey.currentState!.validate()) {
       final authProvider = context.read<AuthProvider>();
       
-      // Show loading state (handled by AuthProvider)
+      // Show loading state (handled by AuthProvider,)
       final success = await authProvider.signIn(
         email: _emailController.text.trim(),
         password: _passwordController.text,
@@ -257,7 +257,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   strokeWidth: 2,
                                   color: Colors.white,
                                 ),
-                              )
+                              ,)
                             : const Text(
                                 'Login',
                                 style: TextStyle(

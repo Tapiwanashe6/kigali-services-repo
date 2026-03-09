@@ -359,7 +359,7 @@ class _ProfileCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             decoration: BoxDecoration(
               color: isVerified
-                  ? Colors.green.withValues(alpha: 0.1)
+                  ? Colors.green.withValues(alpha: 0.1,)
                   : Colors.orange.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(20),
             ),

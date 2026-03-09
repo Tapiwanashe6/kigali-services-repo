@@ -36,7 +36,7 @@ class CategoryFilterDropdown extends StatelessWidget {
           isExpanded: true,
           icon: const Icon(Icons.filter_list),
           items: [
-            if (showAllOption)
+            if (showAllOption,)
               const DropdownMenuItem<String>(
                 value: null,
                 child: Text('All Categories'),

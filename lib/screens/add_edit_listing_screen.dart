@@ -334,7 +334,7 @@ class _AddEditListingScreenState extends State<AddEditListingScreen> {
                           strokeWidth: 2,
                           color: Colors.white,
                         ),
-                      )
+                      ,)
                     : Text(
                         isEditing ? 'Update Listing' : 'Create Listing',
                         style: const TextStyle(
