@@ -1,5 +1,6 @@
 // Internal models
 class Listing {
+
   final String id;
   final String name;
   final String category;
