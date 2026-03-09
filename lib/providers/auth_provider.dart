@@ -66,7 +66,7 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
         return true;
       } else {
-        _errorMessage = 'Failed to create account';
+        _errorMessage = 'Account creation failed';
         _state = AuthState.error;
         notifyListeners();
         return false;
