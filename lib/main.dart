@@ -9,7 +9,7 @@ import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primaryColor: primaryColor,
           scaffoldBackgroundColor: backgroundColor,
-          
+
           // Color Scheme
           colorScheme: const ColorScheme.light(
             primary: primaryColor,
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
             onSurface: textPrimary,
             onError: Colors.white,
           ),
-          
+
           // AppBar Theme
           appBarTheme: const AppBarTheme(
             centerTitle: true,
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
             ),
             iconTheme: IconThemeData(color: Colors.white),
           ),
-          
+
           // Card Theme
           cardTheme: CardThemeData(
             elevation: 2,
@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
             color: surfaceColor,
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           ),
-          
+
           // Elevated Button Theme
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
@@ -105,7 +105,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Outlined Button Theme
           outlinedButtonTheme: OutlinedButtonThemeData(
             style: OutlinedButton.styleFrom(
@@ -122,7 +122,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Text Button Theme
           textButtonTheme: TextButtonThemeData(
             style: TextButton.styleFrom(
@@ -134,7 +134,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Floating Action Button Theme
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
             backgroundColor: accentColor,
@@ -142,7 +142,7 @@ class MyApp extends StatelessWidget {
             elevation: 4,
             shape: CircleBorder(),
           ),
-          
+
           // Input Decoration Theme
           inputDecorationTheme: InputDecorationTheme(
             filled: true,
@@ -167,7 +167,7 @@ class MyApp extends StatelessWidget {
             hintStyle: TextStyle(color: Colors.grey.shade500),
             labelStyle: const TextStyle(color: textSecondary),
           ),
-          
+
           // Bottom Navigation Bar Theme
           bottomNavigationBarTheme: BottomNavigationBarThemeData(
             backgroundColor: surfaceColor,
@@ -184,7 +184,7 @@ class MyApp extends StatelessWidget {
               fontSize: 12,
             ),
           ),
-          
+
           // Navigation Bar Theme (Material 3)
           navigationBarTheme: NavigationBarThemeData(
             backgroundColor: surfaceColor,
@@ -217,7 +217,7 @@ class MyApp extends StatelessWidget {
               );
             }),
           ),
-          
+
           // Chip Theme
           chipTheme: ChipThemeData(
             backgroundColor: Colors.grey.shade100,
@@ -228,20 +228,20 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          
+
           // Divider Theme
           dividerTheme: DividerThemeData(
             color: Colors.grey.shade200,
             thickness: 1,
             space: 1,
           ),
-          
+
           // List Tile Theme
           listTileTheme: const ListTileThemeData(
             contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
             minLeadingWidth: 24,
           ),
-          
+
           // Snackbar Theme
           snackBarTheme: SnackBarThemeData(
             backgroundColor: primaryColor,
@@ -251,7 +251,7 @@ class MyApp extends StatelessWidget {
             ),
             behavior: SnackBarBehavior.floating,
           ),
-          
+
           // Dialog Theme
           dialogTheme: DialogThemeData(
             backgroundColor: surfaceColor,
@@ -265,7 +265,7 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          
+
           // Text Theme - Improved hierarchy with better spacing
           textTheme: const TextTheme(
             displayLarge: TextStyle(color: textPrimary, fontWeight: FontWeight.bold, fontSize: 32, letterSpacing: -0.5),
@@ -314,7 +314,7 @@ class _AuthWrapperState extends State<AuthWrapper> with SingleTickerProviderStat
       curve: Curves.easeInOut,
     );
     _animationController.forward();
-    
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AuthProvider>().initializeAuthListener();
     });
@@ -333,7 +333,7 @@ class _AuthWrapperState extends State<AuthWrapper> with SingleTickerProviderStat
       child: Consumer<AuthProvider>(
         builder: (context, authProvider, child) {
           // Show loading while checking auth state
-          if (authProvider.state == AuthState.initial || 
+          if (authProvider.state == AuthState.initial ||
               authProvider.state == AuthState.loading) {
             return const _LoadingScreen();
           }
@@ -481,7 +481,7 @@ class UnverifiedEmailScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                
+
                 // Refresh Button
                 SizedBox(
                   width: double.infinity,
@@ -534,7 +534,7 @@ class UnverifiedEmailScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                
+
                 // Logout Button
                 TextButton(
                   onPressed: () {
