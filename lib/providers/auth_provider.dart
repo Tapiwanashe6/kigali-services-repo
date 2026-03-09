@@ -11,7 +11,7 @@ enum AuthState {
 }
 
 class AuthProvider extends ChangeNotifier {
-  final AuthService _authService = AuthService();
+  final AuthService _auth = AuthService();
 
   AuthState _state = AuthState.initial;
   User? _user;
@@ -28,7 +28,7 @@ class AuthProvider extends ChangeNotifier {
 
   // Initialize auth state listener
   void initializeAuthListener() {
-    _authService.authStateChanges.listen((User? user) {
+    _auth.authStateChanges.listen((User? user) {
       if (user != null) {
         _user = user;
         _emailVerified = user.emailVerified;
@@ -53,7 +53,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final User? user = await _authService.signUp(
+      final User? user = await _auth.signUp(
         email: email,
         password: password,
         displayName: displayName,
@@ -89,7 +89,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final User? user = await _authService.signIn(
+      final User? user = await _auth.signIn(
         email: email,
         password: password,
       );
@@ -133,7 +133,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await _authService.signOut();
+      await _auth.signOut();
       _user = null;
       _emailVerified = false;
       _state = AuthState.unauthenticated;
@@ -148,7 +148,7 @@ class AuthProvider extends ChangeNotifier {
   // Reload user to check email verification status
   Future<void> reloadUser() async {
     try {
-      final User? updatedUser = await _authService.reloadUser();
+      final User? updatedUser = await _auth.reloadUser();
       if (updatedUser != null) {
         _user = updatedUser;
         _emailVerified = updatedUser.emailVerified;
@@ -164,7 +164,7 @@ class AuthProvider extends ChangeNotifier {
   Future<void> markEmailAsVerified() async {
     try {
       if (_user != null) {
-        await _authService.markEmailAsVerified(_user!.uid);
+        await _auth.markEmailAsVerified(_user!.uid);
         _emailVerified = true;
         notifyListeners();
       }
@@ -177,7 +177,7 @@ class AuthProvider extends ChangeNotifier {
   // Send password reset email
   Future<bool> sendPasswordResetEmail(String email) async {
     try {
-      await _authService.sendPasswordResetEmail(email);
+      await _auth.sendPasswordResetEmail(email);
       return true;
     } catch (e) {
       _errorMessage = e.toString();
@@ -189,7 +189,7 @@ class AuthProvider extends ChangeNotifier {
   // Resend verification email
   Future<bool> resendVerificationEmail() async {
     try {
-      await _authService.resendVerificationEmail();
+      await _auth.resendVerificationEmail();
       return true;
     } catch (e) {
       _errorMessage = e.toString();
