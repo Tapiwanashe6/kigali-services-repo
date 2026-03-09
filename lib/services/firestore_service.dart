@@ -6,7 +6,6 @@ class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final Uuid _uuid = const Uuid();
 
-  // Get reference to listings collection
   CollectionReference get _listingsCollection => _firestore.collection('listings');
 
   // Create a new listing
@@ -42,7 +41,7 @@ class FirestoreService {
     }
   }
 
-  // Get all listings (real-time stream)
+  // All listings stream
   Stream<List<Listing>> getAllListings() {
     return _listingsCollection
         .orderBy('timestamp', descending: true)
@@ -54,7 +53,7 @@ class FirestoreService {
     });
   }
 
-  // Get listings by user (real-time stream)
+  // Listings by user stream
   Stream<List<Listing>> getListingsByUser(String userId) {
     return _listingsCollection
         .where('createdBy', isEqualTo: userId)
@@ -67,7 +66,7 @@ class FirestoreService {
     });
   }
 
-  // Get single listing by ID
+  // Get single listing
   Future<Listing?> getListingById(String id) async {
     try {
       final DocumentSnapshot doc = await _listingsCollection.doc(id).get();

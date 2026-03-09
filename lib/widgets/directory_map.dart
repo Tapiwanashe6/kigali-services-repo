@@ -6,21 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../models/listing.dart';
 import '../providers/listings_provider.dart';
 
-/// A reusable widget that displays listings as markers on OpenStreetMap.
-/// 
-/// This widget uses OpenStreetMap via flutter_map package.
-/// It supports displaying multiple listings with markers, tooltips, and popups.
-/// The map updates dynamically when listings change (via Provider).
-/// 
-/// Required packages:
-/// - flutter_map: ^7.0.2
-/// - latlong2: ^0.9.1
-/// 
-/// [listings] - List of Listing objects to display on the map
-/// [initialCenter] - Initial map center (defaults to Kigali, Rwanda)
-/// [initialZoom] - Initial zoom level (defaults to 12)
-/// [onMarkerTap] - Optional callback when a marker is tapped
-/// [showPopup] - Whether to show popup when marker is tapped (default: true)
+/// Reusable OpenStreetMap widget for directory listings.
 class DirectoryMap extends StatefulWidget {
   final List<Listing>? listings;
   final LatLng? initialCenter;
@@ -45,10 +31,9 @@ class _DirectoryMapState extends State<DirectoryMap> {
   Listing? _selectedListing;
   final MapController _mapController = MapController();
 
-  // Default to Kigali, Rwanda coordinates
   static const LatLng _defaultCenter = LatLng(-1.9403, 30.0606);
 
-  /// Check if coordinates are valid (not 0,0)
+  // Check valid coordinates (not 0,0)
   bool _hasValidCoordinates(Listing listing) {
     return (listing.latitude != 0.0 || listing.longitude != 0.0);
   }
@@ -57,17 +42,14 @@ class _DirectoryMapState extends State<DirectoryMap> {
   Widget build(BuildContext context) {
     return Consumer<ListingsProvider>(
       builder: (context, provider, child) {
-        // Use provided listings or fall back to provider listings
         final List<Listing> listings = widget.listings ?? provider.listings;
 
-        // Error handling: Handle loading state
         if (provider.state == ListingsState.loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
 
-        // Error handling: Handle error state
         if (provider.state == ListingsState.error) {
           return Center(
             child: Column(
