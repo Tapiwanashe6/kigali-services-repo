@@ -4,12 +4,47 @@ A comprehensive directory and mapping application for services in Kigali, Rwanda
 
 ## 🚀 Features
 
-- **Service Directory:** Browse through a wide range of services available in Kigali.
-- **Interactive Map:** View service locations using OpenStreetMap (via `flutter_map`).
-- **User Authentication:** Secure sign-up and login with Firebase Auth.
-- **Listing Management:** Users can add, edit, and manage their own service listings.
-- **Real-time Data:** Powered by Cloud Firestore for instant updates.
-- **Navigation:** Deep links to external maps for guidance to service locations.
+- **Service Directory:** Browse through a wide range of services available in Kigali, including categories like Healthcare, Education, and Entertainment.
+- **Interactive Map View:** Integrated OpenStreetMap (via `flutter_map`) to visualize service locations and find nearby facilities.
+- **User Authentication:** Secure sign-up/login with Firebase Auth, featuring email verification and secure user profiles.
+- **Listing Management:** Authenticated users can create, update, and remove their own service listings.
+- **Review & Rating System:** Users can provide feedback and rate services to help others find the best quality options.
+- **Search & Filter:** Easily find services by name or category.
+- **External Navigation:** Quick links to launch external navigation apps for turn-by-turn directions.
+
+## 🗄 Database Structure (Firestore)
+
+The application uses **Cloud Firestore** for its real-time NoSQL database. The structure is organized into the following main collections:
+
+### 1. `listings` Collection
+Stores all service-related information.
+- `name`: (string) Name of the service.
+- `category`: (string) Type of service (e.g., Hospital, School).
+- `address`: (string) Physical location description.
+- `description`: (string) Details about the service provided.
+- `contactNumber`: (string) Phone number for the service.
+- `latitude`: (float) Geographic latitude.
+- `longitude`: (float) Geographic longitude.
+- `createdBy`: (string) UID of the user who added the listing.
+- `timestamp`: (timestamp) Creation/last update date.
+- `AverageRating`: (float) Aggregated user rating.
+- `NumRatings`: (int) Total number of reviews.
+
+### 2. `users` Collection
+Stores application-specific user data.
+- `uid`: (string) Unique ID from Firebase Auth.
+- `email`: (string) User email address.
+- `username`: (string) User's display name.
+- `isEmailVerified`: (bool) Verification status.
+
+## 🧠 State Management
+
+This project implements the **Provider** pattern for state management, following the **ChangeNotifier** approach. This ensures a clean separation of concerns between business logic and UI.
+
+- **`AuthProvider`**: Manages the user's authentication state (login, registration, logout) and persists the current user's session.
+- **`ListingsProvider`**: Handles all CRUD operations for service listings. It listens to real-time updates from Firestore using Streams and notifies the UI when data changes.
+
+---
 
 ## 🛠 Tech Stack
 
