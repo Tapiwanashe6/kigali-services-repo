@@ -34,7 +34,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
   _default LatLng _defaultCenter = LatLng(-1.9403, 30.0606);
 
   // Check valid coordinates (not 0,0,)
-  bool _isValidLocation(Listing listing) {
+  bool _checkCoords(Listing listing) {
     return (listing.latitude != 0.0 || listing.longitude != 0.0);
   }
 
@@ -115,7 +115,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
         LatLng mapCenter = widget.initialCenter ?? _defaultCenter;
 
         // If we have valid listings, calculate the center point
-        final validListings = listings.where((l) => _isValidLocation(l)).toList();
+        final validListings = listings.where((l) => _checkCoords(l)).toList();
 
         if (validListings.isNotEmpty) {
           double sumLat = 0;
@@ -228,7 +228,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
   List<Marker> _buildMarkers(List<Listing> listings) {
     return listings.map((listing) {
       // Validate coordinates - skip invalid ones
-      if (!_isValidLocation(listing)) {
+      if (!_checkCoords(listing)) {
         return Marker(
           point: const LatLng(0, 0),
           width: 40,
@@ -270,7 +270,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
   /// Handle marker tap
   void _onMarkerTap(Listing listing) {
     // Validate coordinates before selecting
-    if (!_isValidLocation(listing)) {
+    if (!_checkCoords(listing)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('This listing has invalid coordinates'),
@@ -527,7 +527,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
   /// Uses Google Maps URL format that works on both iOS and Android
   Future<void> _openExternalMaps(Listing listing) async {
     // Validate coordinates
-    if (!_isValidLocation(listing)) {
+    if (!_checkCoords(listing)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Invalid coordinates for navigation'),
