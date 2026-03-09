@@ -31,7 +31,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
   Listing? _selectedListing;
   final MapController _mapController = MapController();
 
-  static const LatLng _defaultCenter = LatLng(-1.9403, 30.0606);
+  _default LatLng _defaultCenter = LatLng(-1.9403, 30.0606);
 
   // Check valid coordinates (not 0,0,)
   bool _isValidLocation(Listing listing) {
