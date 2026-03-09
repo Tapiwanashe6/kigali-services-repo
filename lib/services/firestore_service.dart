@@ -4,7 +4,7 @@ import '../models/listing.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final Uuid _uuid = const Uuid();
+  final _uuid = const Uuid();
 
   CollectionReference get _listingsCollection => _firestore.collection('listings');
 
