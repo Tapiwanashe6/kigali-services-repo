@@ -113,10 +113,10 @@ class _DirectoryMapState extends State<DirectoryMap> {
 
         // Calculate center from listings or use provided/default center
         LatLng mapCenter = widget.initialCenter ?? _defaultCenter;
-        
+
         // If we have valid listings, calculate the center point
         final validListings = listings.where((l) => _hasValidCoordinates(l)).toList();
-        
+
         if (validListings.isNotEmpty) {
           double sumLat = 0;
           double sumLng = 0;
@@ -156,7 +156,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
                   urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                   userAgentPackageName: 'com.example.kigali_services_directory',
                 ),
-                
+
                 // Markers layer
                 MarkerLayer(
                   markers: _buildMarkers(listings),
@@ -279,17 +279,17 @@ class _DirectoryMapState extends State<DirectoryMap> {
       );
       return;
     }
-    
+
     setState(() {
       _selectedListing = listing;
     });
-    
+
     // Move map to selected marker
     _mapController.move(
       LatLng(listing.latitude, listing.longitude),
       _mapController.camera.zoom,
     );
-    
+
     // Callback for external handling
     if (widget.onMarkerTap != null) {
       widget.onMarkerTap!(listing);
@@ -536,32 +536,32 @@ class _DirectoryMapState extends State<DirectoryMap> {
       );
       return;
     }
-    
+
     final double lat = listing.latitude;
     final double lng = listing.longitude;
     final String label = Uri.encodeComponent(listing.name);
-    
+
     // Use search URL that works on both platforms
     String googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng&q=$label';
     Uri googleUrl = Uri.parse(googleMapsUrl);
-    
+
     // Apple Maps URL as fallback for iOS
     String appleMapsUrl = 'https://maps.apple.com/?daddr=$lat,$lng&q=$label';
     Uri appleUrl = Uri.parse(appleMapsUrl);
-    
+
     try {
       // Try Google Maps first
       if (await canLaunchUrl(googleUrl)) {
         final result = await launchUrl(googleUrl, mode: LaunchMode.externalApplication);
         if (result) return;
       }
-      
+
       // Fallback to Apple Maps on iOS
       if (await canLaunchUrl(appleUrl)) {
         await launchUrl(appleUrl, mode: LaunchMode.externalApplication);
         return;
       }
-      
+
       // If all fails
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -598,7 +598,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
 
   /// Get turn-by-turn directions (placeholder for future implementation,)
   Future<List<String>> getTurnByTurnDirections(
-    LatLng start, 
+    LatLng start,
     LatLng end,
   ) async {
     debugPrint('Get turn-by-turn directions from $start to $end');

@@ -21,7 +21,7 @@ class _AddEditListingScreenState extends State<AddEditListingScreen> {
   final _descriptionController = TextEditingController();
   final _latitudeController = TextEditingController();
   final _longitudeController = TextEditingController();
-  
+
   String _selectedCategory = ListingCategory.all.first;
   bool _isLoading = false;
 

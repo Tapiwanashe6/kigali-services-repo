@@ -85,7 +85,7 @@ class NotificationService {
     final android = _notificationsPlugin
         .resolvePlatformSpecificImplementation<
             AndroidFlutterLocalNotificationsPlugin>();
-    
+
     if (android != null) {
       final granted = await android.requestNotificationsPermission();
       return granted ?? false;
@@ -94,7 +94,7 @@ class NotificationService {
     final ios = _notificationsPlugin
         .resolvePlatformSpecificImplementation<
             IOSFlutterLocalNotificationsPlugin>();
-    
+
     if (ios != null) {
       final granted = await ios.requestPermissions(
         alert: true,
@@ -117,7 +117,7 @@ class NotificationService {
     await requestPermissions();
 
     _isSimulationEnabled = true;
-    
+
     // Show initial notification immediately
     await _showRandomNotification();
 

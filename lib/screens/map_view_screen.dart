@@ -31,7 +31,7 @@ class _MapViewScreenState extends State<MapViewScreen> with SingleTickerProvider
       curve: Curves.easeInOut,
     );
     _animationController.forward();
-    
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<ListingsProvider>().initializeListingsStream();
     });
@@ -80,8 +80,8 @@ class _MapViewScreenState extends State<MapViewScreen> with SingleTickerProvider
               // Filter info badge
               Consumer<ListingsProvider>(
                 builder: (context, provider, child) {
-                  final count = provider.filteredListings.isNotEmpty 
-                      ? provider.filteredListings.length 
+                  final count = provider.filteredListings.isNotEmpty
+                      ? provider.filteredListings.length
                       : provider.listings.length;
                   return Container(
                     margin: const EdgeInsets.only(right: 16),
@@ -110,25 +110,25 @@ class _MapViewScreenState extends State<MapViewScreen> with SingleTickerProvider
               ),
             ],
           ),
-          
+
           // Map Content
           SliverFillRemaining(
             child: FadeTransition(
               opacity: _fadeAnimation,
               child: Consumer<ListingsProvider>(
                 builder: (context, provider, child) {
-                  final listings = provider.filteredListings.isNotEmpty 
-                      ? provider.filteredListings 
+                  final listings = provider.filteredListings.isNotEmpty
+                      ? provider.filteredListings
                       : provider.listings;
-                  
+
                   if (provider.state == ListingsState.loading && listings.isEmpty) {
                     return _LoadingState();
                   }
-                  
+
                   if (listings.isEmpty) {
                     return _EmptyMapState();
                   }
-                  
+
                   return DirectoryMap(
                     listings: listings,
                     showPopup: true,

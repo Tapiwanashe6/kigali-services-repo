@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _handleLogin() async {
     if (_formKey.currentState!.validate()) {
       final authProvider = context.read<AuthProvider>();
-      
+
       // Show loading state (handled by AuthProvider,)
       final success = await authProvider.signIn(
         email: _emailController.text.trim(),
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
       } else if (!success && mounted) {
         // Check if it's an email verification issue
         final errorMsg = authProvider.errorMessage ?? 'Login failed';
-        
+
         if (errorMsg.contains('verify your email')) {
           // Show dialog for email verification with option to go to pending screen
           _showEmailVerificationDialog();
@@ -205,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
-                  
+
                   // Login Error Message
                   if (_loginError != null) ...[
                     const const SizedBox(height: 16),
@@ -233,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ],
-                  
+
                   const SizedBox(height: 24),
 
                   // Login Button

@@ -40,7 +40,7 @@ class _EmailVerificationPendingScreenState
     if (mounted && authProvider.emailVerified) {
       // Mark email as verified in Firestore database
       await authProvider.markEmailAsVerified();
-      
+
       // Email verified, navigate to home
       if (mounted) {
         Navigator.pushReplacement(

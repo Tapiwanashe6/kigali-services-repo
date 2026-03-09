@@ -92,7 +92,7 @@ class FirestoreService {
   }) async {
     try {
       final Map<String, dynamic> updateData = {};
-      
+
       if (name != null) updateData['name'] = name;
       if (category != null) updateData['category'] = category;
       if (address != null) updateData['address'] = address;

@@ -22,7 +22,7 @@ class ListingsProvider extends ChangeNotifier {
   String? _selectedCategory;
   StreamSubscription<List<Listing>>? _listingsSubscription;
   StreamSubscription<List<Listing>>? _myListingsSubscription;
-  
+
   // Track if streams are already initialized
   bool _listingsStreamInitialized = false;
   bool _myListingsStreamInitialized = false;
@@ -64,7 +64,7 @@ class ListingsProvider extends ChangeNotifier {
     if (_listingsStreamInitialized) {
       return;
     }
-    
+
     _listingsStreamInitialized = true;
     _listingsSubscription?.cancel();
     _listingsSubscription = _firestoreService.getAllListings().listen(
@@ -87,12 +87,12 @@ class ListingsProvider extends ChangeNotifier {
     if (_myListingsStreamInitialized && _currentUserIdForMyListings == userId && !forceRefresh) {
       return;
     }
-    
+
     _myListingsLoading = true;
     _currentUserIdForMyListings = userId;
     _myListingsStreamInitialized = true;
     notifyListeners();
-    
+
     _myListingsSubscription?.cancel();
     _myListingsSubscription = _firestoreService.getListingsByUser(userId).listen(
       (List<Listing> listings) {
@@ -241,7 +241,7 @@ class ListingsProvider extends ChangeNotifier {
         listingId: listingId,
         newRating: rating,
       );
-      
+
       // Get updated listing and update local state
       final updatedListing = await _firestoreService.getListingById(listingId);
       if (updatedListing != null) {
@@ -272,13 +272,13 @@ class ListingsProvider extends ChangeNotifier {
     if (cachedListing != null) {
       return cachedListing;
     }
-    
+
     // Second, check local cache (_myListings,)
     final cachedMyListing = _myListings.where((l) => l.id == id).firstOrNull;
     if (cachedMyListing != null) {
       return cachedMyListing;
     }
-    
+
     // If not in cache, fetch from Firestore
     try {
       return await _firestoreService.getListingById(id);

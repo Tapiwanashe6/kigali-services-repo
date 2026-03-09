@@ -81,7 +81,7 @@ class AuthService {
           await _auth.signOut();
           throw Exception('Your account is not found in our system. Please sign up.');
         }
-        
+
         return User.fromFirebaseUser(firebaseUser);
       }
       return null;

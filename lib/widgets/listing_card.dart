@@ -75,7 +75,7 @@ class ListingCard extends StatelessWidget {
   double? _calculateDistance() {
     if (userLatitude == null || userLongitude == null) return null;
     if (listing.latitude == 0 && listing.longitude == 0) return null;
-    
+
     const double earthRadius = 6371;
     final double lat1Rad = userLatitude! * math.pi / 180;
     final double lat2Rad = listing.latitude * math.pi / 180;
@@ -86,7 +86,7 @@ class ListingCard extends StatelessWidget {
         math.cos(lat1Rad) * math.cos(lat2Rad) *
         math.sin(deltaLng / 2) * math.sin(deltaLng / 2);
     final double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
-    
+
     return earthRadius * c;
   }
 
@@ -144,7 +144,7 @@ class ListingCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 16),
-                  
+
                   // Listing Info
                   Expanded(
                     child: Column(
@@ -163,7 +163,7 @@ class ListingCard extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(height: 10),
-                        
+
                         // Category & Rating Row
                         Row(
                           mainAxisSize: MainAxisSize.min,
@@ -188,7 +188,7 @@ class ListingCard extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 10),
-                            
+
                             // Rating display (only show for listings with ratings,)
                             if (listing.numRatings > 0,)
                               Container(
@@ -231,7 +231,7 @@ class ListingCard extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        
+
                         // Address Row with distance
                         Row(
                           children: [
@@ -280,7 +280,7 @@ class ListingCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  
+
                   // Action buttons or chevron
                   const SizedBox(width: 8),
                   if (showActions,)

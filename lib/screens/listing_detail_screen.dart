@@ -70,7 +70,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
 
   Future<void> _openNavigation() async {
     if (_listing == null) return;
-    
+
     if (!_hasValidCoordinates()) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -90,32 +90,32 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
       }
       return;
     }
-    
+
     final double lat = _listing!.latitude;
     final double lng = _listing!.longitude;
     final String label = Uri.encodeComponent(_listing!.name);
-    
+
     // Try Google Maps first
     String googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng&query_place_id=$label';
     Uri googleUrl = Uri.parse(googleMapsUrl);
-    
+
     // Alternative: Use universal URL that works on both platforms
     String appleMapsUrl = 'https://maps.apple.com/?daddr=$lat,$lng&q=$label';
     Uri appleUrl = Uri.parse(appleMapsUrl);
-    
+
     try {
       // Try Google Maps first
       if (await canLaunchUrl(googleUrl)) {
         final result = await launchUrl(googleUrl, mode: LaunchMode.externalApplication);
         if (result) return;
       }
-      
+
       // Fallback to Apple Maps on iOS
       if (await canLaunchUrl(appleUrl)) {
         await launchUrl(appleUrl, mode: LaunchMode.externalApplication);
         return;
       }
-      
+
       // If all fails, show error
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -149,7 +149,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
 
   void _showRatingDialog() {
     double userRating = _listing?.averageRating ?? 0;
-    
+
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -225,7 +225,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
           ElevatedButton(
             onPressed: () async {
               Navigator.pop(dialogContext);
-              
+
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Row(
@@ -248,17 +248,17 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                   duration: const Duration(seconds: 1),
                 ),
               );
-              
+
               final listingsProvider = context.read<ListingsProvider>();
               final scaffoldMessenger = ScaffoldMessenger.of(context);
               final success = await listingsProvider.rateListing(
                 listingId: widget.listingId,
                 rating: userRating,
               );
-              
+
               if (success && mounted) {
                 await _loadListing();
-                
+
                 scaffoldMessenger.showSnackBar(
                   SnackBar(
                     content: Row(
@@ -458,7 +458,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       ),
                     ),
                   ),
-                  
+
                   // Center Icon
                   Center(
                     child: Column(
@@ -499,7 +499,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       ],
                     ),
                   ),
-                  
+
                   // Gradient Overlay
                   Container(
                     decoration: BoxDecoration(
@@ -513,7 +513,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       ),
                     ),
                   ),
-                  
+
                   // Map Preview or Location Status
                   if (_hasValidCoordinates(),)
                     Positioned(
@@ -608,7 +608,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
               ),
             ),
           ),
-          
+
           // Details Section
           SliverToBoxAdapter(
             child: FadeTransition(
@@ -645,7 +645,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       ],
                     ),
                     const SizedBox(height: 24),
-                    
+
                     // Section Title
                     const Text(
                       'Details',
@@ -656,7 +656,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       ),
                     ),
                     const const SizedBox(height: 16),
-                    
+
                     // Address
                     _DetailRow(
                       icon: Icons.location_on_outlined,
@@ -664,7 +664,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       value: _listing!.address,
                     ),
                     const const SizedBox(height: 16),
-                    
+
                     // Contact
                     _DetailRow(
                       icon: Icons.phone_outlined,
@@ -678,7 +678,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                           : null,
                     ),
                     const const SizedBox(height: 16),
-                    
+
                     // Description
                     _DetailRow(
                       icon: Icons.description_outlined,
@@ -686,7 +686,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       value: _listing!.description,
                     ),
                     const const SizedBox(height: 16),
-                    
+
                     // Coordinates
                     if (_hasValidCoordinates()) ...[
                       _DetailRow(
@@ -696,7 +696,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       ),
                       const SizedBox(height: 24),
                     ],
-                    
+
                     // Action Buttons
                     Row(
                       children: [
@@ -875,7 +875,7 @@ class _DetailRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasValue = value.isNotEmpty;
-    
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

@@ -97,7 +97,7 @@ class AuthProvider extends ChangeNotifier {
       if (user != null) {
         _user = user;
         _emailVerified = user.emailVerified;
-        
+
         if (!_emailVerified) {
           _errorMessage = 'Please verify your email before logging in.';
           _state = AuthState.error;

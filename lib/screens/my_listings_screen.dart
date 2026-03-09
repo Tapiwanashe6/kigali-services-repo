@@ -18,7 +18,7 @@ class _MyListingsScreenState extends State<MyListingsScreen> with WidgetsBinding
   // App Theme Colors
   static const Color primaryColor = Color(0xFF1A237E);
   static const Color accentColor = Color(0xFFFFD700);
-  
+
   @override
   void initState() {
     super.initState();
@@ -191,7 +191,7 @@ class _MyListingsScreenState extends State<MyListingsScreen> with WidgetsBinding
                 ),
               ),
             ),
-            
+
             // Content
             Consumer2<AuthProvider, ListingsProvider>(
               builder: (context, authProvider, listingsProvider, child) {
