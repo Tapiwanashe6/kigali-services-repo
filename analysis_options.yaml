@@ -28,3 +28,4 @@ linter:
 # https://dart.dev/guides/language/analysis-options
 \nlinter:\n  rules:\n    - prefer_const_constructors
     - always_declare_return_types
+    - always_declare_return_types
