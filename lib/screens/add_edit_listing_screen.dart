@@ -153,7 +153,7 @@ class _AddEditListingScreenState extends State<AddEditListingScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16),
+              const const SizedBox(height: 16),
 
               // Category Dropdown
               DropdownButtonFormField<String>(
@@ -177,7 +177,7 @@ class _AddEditListingScreenState extends State<AddEditListingScreen> {
                   }
                 },
               ),
-              const SizedBox(height: 16),
+              const const SizedBox(height: 16),
 
               // Address Field
               TextFormField(
@@ -196,7 +196,7 @@ class _AddEditListingScreenState extends State<AddEditListingScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16),
+              const const SizedBox(height: 16),
 
               // Contact Number Field
               TextFormField(
@@ -216,7 +216,7 @@ class _AddEditListingScreenState extends State<AddEditListingScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16),
+              const const SizedBox(height: 16),
 
               // Description Field
               TextFormField(
@@ -237,7 +237,7 @@ class _AddEditListingScreenState extends State<AddEditListingScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16),
+              const const SizedBox(height: 16),
 
               // Coordinates Section
               const Text(

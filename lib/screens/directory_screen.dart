@@ -101,7 +101,7 @@ class _DirectoryScreenState extends State<DirectoryScreen> with SingleTickerProv
                         context.read<ListingsProvider>().setSearchQuery('');
                       },
                     ),
-                    const SizedBox(height: 16),
+                    const const SizedBox(height: 16),
                     Consumer<ListingsProvider>(
                       builder: (context, provider, child) {
                         return CategoryFilterChips(

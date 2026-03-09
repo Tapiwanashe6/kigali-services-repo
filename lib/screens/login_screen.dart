@@ -128,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     size: 80,
                     color: Color(0xFF1A237E),
                   ),
-                  const SizedBox(height: 16),
+                  const const SizedBox(height: 16),
                   const Text(
                     'Kigali Services',
                     textAlign: TextAlign.center,
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const const SizedBox(height: 16),
 
                   // Password Field
                   TextFormField(
@@ -208,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   
                   // Login Error Message
                   if (_loginError != null) ...[
-                    const SizedBox(height: 16),
+                    const const SizedBox(height: 16),
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
@@ -268,7 +268,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const const SizedBox(height: 16),
 
                   // Sign up link
                   Row(

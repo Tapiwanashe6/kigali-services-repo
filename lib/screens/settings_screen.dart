@@ -188,7 +188,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           letterSpacing: 0.25,
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      const const SizedBox(height: 16),
                       _SettingsCard(
                         children: [
                           _SettingsTile(
@@ -233,7 +233,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   ),
                                 ),
                                 children: [
-                                  const SizedBox(height: 16),
+                                  const const SizedBox(height: 16),
                                   const Text(
                                     'A directory app for finding services and places in Kigali, Rwanda.',
                                     style: TextStyle(height: 1.5),
@@ -337,7 +337,7 @@ class _ProfileCard extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          const const SizedBox(height: 16),
           Text(
             name,
             style: const TextStyle(

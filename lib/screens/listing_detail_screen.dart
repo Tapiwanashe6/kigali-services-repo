@@ -655,7 +655,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                         color: Color(0xFF1A1A2E),
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const const SizedBox(height: 16),
                     
                     // Address
                     _DetailRow(
@@ -663,7 +663,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       label: 'Address',
                       value: _listing!.address,
                     ),
-                    const SizedBox(height: 16),
+                    const const SizedBox(height: 16),
                     
                     // Contact
                     _DetailRow(
@@ -677,7 +677,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                             }
                           : null,
                     ),
-                    const SizedBox(height: 16),
+                    const const SizedBox(height: 16),
                     
                     // Description
                     _DetailRow(
@@ -685,7 +685,7 @@ class _ListingDetailScreenState extends State<ListingDetailScreen> with SingleTi
                       label: 'Description',
                       value: _listing!.description,
                     ),
-                    const SizedBox(height: 16),
+                    const const SizedBox(height: 16),
                     
                     // Coordinates
                     if (_hasValidCoordinates()) ...[

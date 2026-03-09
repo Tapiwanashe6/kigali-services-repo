@@ -156,7 +156,7 @@ class _EmailVerificationPendingScreenState
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 16),
+                const const SizedBox(height: 16),
 
                 // Description
                 Consumer<AuthProvider>(
@@ -204,7 +204,7 @@ class _EmailVerificationPendingScreenState
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                const const SizedBox(height: 16),
 
                 // Auto-refresh note
                 Text(
@@ -254,7 +254,7 @@ class _EmailVerificationPendingScreenState
                     );
                   },
                 ),
-                const SizedBox(height: 16),
+                const const SizedBox(height: 16),
 
                 // Sign out button
                 TextButton.icon(

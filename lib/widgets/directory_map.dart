@@ -60,7 +60,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
                   color: Colors.red,
                   size: 48,
                 ),
-                const SizedBox(height: 16),
+                const const SizedBox(height: 16),
                 Text(
                   'Error loading map data',
                   style: Theme.of(context).textTheme.titleMedium,
@@ -71,7 +71,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
                   style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 16),
+                const const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () => provider.initializeListingsStream(),
                   child: const Text('Retry'),
@@ -92,7 +92,7 @@ class _DirectoryMapState extends State<DirectoryMap> {
                   color: Colors.grey[400],
                   size: 48,
                 ),
-                const SizedBox(height: 16),
+                const const SizedBox(height: 16),
                 Text(
                   'No listings available',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(

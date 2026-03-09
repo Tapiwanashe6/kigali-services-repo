@@ -99,7 +99,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const const SizedBox(height: 16),
 
                   // Email Field
                   TextFormField(
@@ -122,7 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const const SizedBox(height: 16),
 
                   // Password Field
                   TextFormField(
@@ -157,7 +157,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const const SizedBox(height: 16),
 
                   // Confirm Password Field
                   TextFormField(
@@ -226,7 +226,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       );
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const const SizedBox(height: 16),
 
                   // Login link
                   Row(
